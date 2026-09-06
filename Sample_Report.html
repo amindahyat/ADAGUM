@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html dir='rtl' lang='fa'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>گزارش محاسبه عدم قطعیت اندازه‌گیری</title>
+    <style>
+        @font-face {
+            font-family: 'Vazir';
+            src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/Vazir.woff2') format('woff2');
+        }
+        body {
+            font-family: 'Vazir', Tahoma, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin: 0;
+        }
+        .header h2 {
+            color: #3498db;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .formula-section {
+            background: #f1f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-right: 5px solid #3498db;
+        }
+        .formula-title {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .formula {
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+            font-size: 16px;
+            color: #d35400;
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            text-align: center;
+            direction: ltr;
+        }
+        .results {
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-right: 5px solid #27ae60;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+        .result-label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .result-value {
+            font-family: 'Courier New', monospace;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 12px;
+        }
+        .highlight {
+            background-color: #fffde7;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .math-symbol {
+            font-family: 'Cambria Math', serif;
+            font-size: 18px;
+        }
+    </style>
+    <!-- MathJax برای نمایش فرمول‌های ریاضی -->
+    <script src='https://polyfill.io/v3/polyfill.min.js?features=es6'></script>
+    <script id='MathJax-script' async src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class='container'>
+        <div class='header'>
+            <h1>گزارش محاسبه عدم قطعیت اندازه‌گیری</h1>
+            <h2>تاریخ تولید: 2025/12/29 09:47</h2>
+            <p>بر اساس استانداردهای ISO/IEC 17025 و رهنمود GUM</p>
+        </div>
+        <h3>۱. داده‌های اندازه‌گیری</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>تعداد اندازه‌گیری</th>
+                    <th>میانگین</th>
+                    <th>انحراف استاندارد</th>
+                    <th>عدم قطعیت استاندارد میانگین</th>
+                    <th>درجه آزادی</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>6</td>
+                    <td>11.0083</td>
+                    <td>0.011690</td>
+                    <td>0.00477261</td>
+                    <td>5</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>مقادیر اندازه‌گیری:</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>ردیف</th>
+                    <th>مقدار</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>11.0100</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>11.0000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>11.0200</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>10.9900</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>11.0100</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>11.0200</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>۲. منابع عدم قطعیت</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ردیف</th>
+                    <th>نام منبع</th>
+                    <th>مقدار ± (a)</th>
+                    <th>توزیع</th>
+                    <th>ضریب حساسیت (c)</th>
+                    <th>نوع</th>
+                    <th>درجه آزادی (ν)</th>
+                    <th>عدم قطعیت استاندارد (u)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>تکرارپذیری (از داده‌های اندازه‌گیری)</td>
+                    <td>0.011690</td>
+                    <td>Normal</td>
+                    <td>1.00</td>
+                    <td>Type A</td>
+                    <td>5</td>
+                    <td>0.00477261</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>رزولوشن ترازو</td>
+                    <td>0.000100</td>
+                    <td>Rectangular</td>
+                    <td>1.00</td>
+                    <td>Type B</td>
+                    <td>∞</td>
+                    <td>0.00005774</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>خطیت (Linearity)</td>
+                    <td>0.000200</td>
+                    <td>Rectangular</td>
+                    <td>1.00</td>
+                    <td>Type B</td>
+                    <td>∞</td>
+                    <td>0.00011547</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>تأثیر دما</td>
+                    <td>0.000100</td>
+                    <td>Rectangular</td>
+                    <td>1.00</td>
+                    <td>Type B</td>
+                    <td>∞</td>
+                    <td>0.00005774</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class='formula-section'>
+            <div class='formula-title'>۳. محاسبات میانی</div>
+            <h4>جزئیات محاسبه عدم قطعیت استاندارد هر منبع:</h4>
+            <div style='margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 5px;'>
+                <p><strong>منبع تکرارپذیری (از داده‌های اندازه‌گیری):</strong></p>
+                <p>$s = 0.011690$</p>
+                <p>$n = 6$</p>
+                <p>$u = \frac{s}{\sqrt{n}} = \frac{0.011690}{\sqrt{6}} = 0.00477261$</p>
+            </div>
+            <div style='margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 5px;'>
+                <p><strong>منبع: رزولوشن ترازو</strong></p>
+                <p>$a = 0.000100$</p>
+                <p>توزیع: Rectangular → $k = 1.732051$</p>
+                <p>$c = 1.00$</p>
+                <p>$u = \frac{a}{k} \times c = \frac{0.000100}{1.732051} \times 1.00 = 0.00005774$</p>
+            </div>
+            <div style='margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 5px;'>
+                <p><strong>منبع: خطیت (Linearity)</strong></p>
+                <p>$a = 0.000200$</p>
+                <p>توزیع: Rectangular → $k = 1.732051$</p>
+                <p>$c = 1.00$</p>
+                <p>$u = \frac{a}{k} \times c = \frac{0.000200}{1.732051} \times 1.00 = 0.00011547$</p>
+            </div>
+            <div style='margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 5px;'>
+                <p><strong>منبع: تأثیر دما</strong></p>
+                <p>$a = 0.000100$</p>
+                <p>توزیع: Rectangular → $k = 1.732051$</p>
+                <p>$c = 1.00$</p>
+                <p>$u = \frac{a}{k} \times c = \frac{0.000100}{1.732051} \times 1.00 = 0.00005774$</p>
+            </div>
+            <h4>جزئیات محاسبات هر منبع:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>منبع</th>
+                        <th>u_i</th>
+                        <th>u_i²</th>
+                        <th>u_i⁴</th>
+                        <th>ν_i</th>
+                        <th>u_i⁴ / ν_i</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>تکرارپذیری (از داده‌های اندازه‌گیری)</td>
+                    <td>0.00477261</td>
+                    <td>0.000022777778</td>
+                    <td>0.000000000519</td>
+                    <td>5</td>
+                    <td>0.000000000104</td>
+                </tr>
+                <tr>
+                    <td>رزولوشن ترازو</td>
+                    <td>0.00005774</td>
+                    <td>0.000000003333</td>
+                    <td>0.000000000000</td>
+                    <td>∞</td>
+                    <td>0 (∞)</td>
+                </tr>
+                <tr>
+                    <td>خطیت (Linearity)</td>
+                    <td>0.00011547</td>
+                    <td>0.000000013333</td>
+                    <td>0.000000000000</td>
+                    <td>∞</td>
+                    <td>0 (∞)</td>
+                </tr>
+                <tr>
+                    <td>تأثیر دما</td>
+                    <td>0.00005774</td>
+                    <td>0.000000003333</td>
+                    <td>0.000000000000</td>
+                    <td>∞</td>
+                    <td>0 (∞)</td>
+                </tr>
+            </tbody>
+        </table>
+            <p><strong>مجموع u_i² = 0.000022797778</strong></p>
+            <p><strong>مجموع u_i⁴ = 0.000000000519</strong></p>
+            <p><strong>مجموع u_i⁴ / ν_i = 0.000000000104</strong></p>
+        </div>
+        <div class='formula-section'>
+            <div class='formula-title'>۴. فرمول‌های محاسبه</div>
+            <div class='formula'>
+                <p>عدم قطعیت استاندارد هر منبع:</p>
+                <p>$u_i = \frac{a_i}{k_i} \times c_i$</p>
+                <p>که در آن $a_i$ مقدار بازه، $k_i$ ضریب توزیع و $c_i$ ضریب حساسیت است.</p>
+            </div>
+            <div class='formula'>
+                <p>عدم قطعیت ترکیبی:</p>
+                <p>$u_c(y) = \sqrt{\sum_{i=1}^{n} u_i^2}$</p>
+                <p>$u_c = \sqrt{0.000022797778} = 0.00477470$</p>
+            </div>
+            <div class='formula'>
+                <p>درجه آزادی مؤثر (فرمول Welch-Satterthwaite):</p>
+                <p>$\nu_{\text{eff}} = \frac{u_c^4}{\sum \frac{u_i^4}{\nu_i}}$</p>
+                <p>$u_c^4 = 0.000000000520$</p>
+                <p>$\nu_{\text{eff}} = \frac{0.000000000520}{0.000000000104} = 5.0$</p>
+            </div>
+            <div class='formula'>
+                <p>عدم قطعیت گسترده:</p>
+                <p>$U = k \times u_c(y)$</p>
+                <p>$U = 2.570 \times 0.00477470 = 0.012271$</p>
+            </div>
+            <div class='formula'>
+                <p>عدم قطعیت نسبی:</p>
+                <p>$U_{\text{rel}} = \left( \frac{U}{|\bar{x}|} \right) \times 100\%$</p>
+                <p>$U_{\text{rel}} = \left( \frac{0.012271}{11.0083} \right) \times 100 = 0.111\%$</p>
+            </div>
+        </div>
+        <div class='results'>
+            <div class='formula-title'>۵. نتایج نهایی</div>
+            <div class='result-item'>
+                <span class='result-label'>تعداد اندازه‌گیری‌ها:</span>
+                <span class='result-value'>n = 6</span>
+            </div>
+            <div class='result-item'>
+                <span class='result-label'>میانگین اندازه‌گیری‌ها:</span>
+                <span class='result-value'>x̄ = 11.0083</span>
+            </div>
+            <div class='result-item'>
+                <span class='result-label'>انحراف استاندارد:</span>
+                <span class='result-value'>s = 0.011690</span>
+            </div>
+            <div class='result-item'>
+                <span class='result-label'>عدم قطعیت ترکیبی:</span>
+                <span class='result-value'>u_c = 0.00477470</span>
+            </div>
+            <div class='result-item'>
+                <span class='result-label'>درجه آزادی مؤثر:</span>
+                <span class='result-value'>ν_eff = 5.0</span>
+            </div>
+            <div class='result-item'>
+                <span class='result-label'>ضریب پوشش (سطح اطمینان 95%):</span>
+                <span class='result-value'>k = 2.570</span>
+            </div>
+            <div class='result-item'>
+                <span class='result-label'>عدم قطعیت گسترده:</span>
+                <span class='result-value'>U = ±0.012271</span>
+            </div>
+            <div class='result-item'>
+                <span class='result-label'>عدم قطعیت نسبی:</span>
+                <span class='result-value'>U_rel = ±0.111%</span>
+            </div>
+        </div>
+        <div class='formula-section'>
+            <div class='formula-title'>۶. خلاصه گزارش</div>
+            <p>
+                نتیجه نهایی اندازه‌گیری: <span class='highlight'>11.0083 ± 0.012271</span>
+            </p>
+            <p>
+                (عدم قطعیت نسبی: 0.111%)
+                سطح اطمینان: <span class='highlight'>95%</span>
+            </p>
+            <p>
+                پوشش احتمال: <span class='highlight'>0.95</span>
+            </p>
+            <p>
+                تعداد منابع عدم قطعیت: <span class='highlight'>3</span>
+            </p>
+            <p>
+                تعداد اندازه‌گیری‌ها: <span class='highlight'>6</span>
+            </p>
+        </div>
+        <div class='footer'>
+            <p>این گزارش به صورت خودکار توسط نرم‌افزار محاسبه عدم قطعیت تولید شده است.</p>
+            <p>بر اساس استاندارد ISO/IEC 17025:2017 و راهنمای GUM (JCGM 100:2008)</p>
+            <p>© آزمایشگاه - تمامی حقوق محفوظ است</p>
+        </div>
+    </div>
+</body>
+</html>
