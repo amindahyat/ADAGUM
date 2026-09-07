@@ -9,6 +9,11 @@
 این ابزار جایگزین محاسبات دستی پیچیده و فرمول‌نویسی در اکسل می‌شود و با دقت بالا، کار شما را در کمترین زمان ممکن انجام می‌دهد.
 
 ---
+https://github.com/amindahyat/ADAGUM/blob/main/ScreenShot/1.png
+
+https://github.com/amindahyat/ADAGUM/blob/main/ScreenShot/2.png
+
+https://github.com/amindahyat/ADAGUM/blob/main/ScreenShot/3.png
 
 ## ✨ این نرم‌افزار چه کاری برای شما انجام می‌دهد؟
 
