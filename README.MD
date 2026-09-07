@@ -97,7 +97,7 @@
 
 ---
 ## مثال خروجی
-https://github.com/amindahyat/ADAGUM/blob/main/Sample_Report.html
+https://amindahyat.github.io/ADAGUM/Sample_Report.html
 ---
 ## 🖥️ نیازمندی‌های سیستم برای اجرا
 
