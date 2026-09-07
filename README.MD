@@ -10,7 +10,7 @@
 
 ---
 https://github.com/amindahyat/ADAGUM/blob/main/ScreenShot/1.png
-
+<img src="ScreenShot/1.png" alt="توضیح تصویر" width="700"/>
 https://github.com/amindahyat/ADAGUM/blob/main/ScreenShot/2.png
 
 https://github.com/amindahyat/ADAGUM/blob/main/ScreenShot/3.png
