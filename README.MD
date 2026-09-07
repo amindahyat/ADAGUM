@@ -9,11 +9,12 @@
 این ابزار جایگزین محاسبات دستی پیچیده و فرمول‌نویسی در اکسل می‌شود و با دقت بالا، کار شما را در کمترین زمان ممکن انجام می‌دهد.
 
 ---
-https://github.com/amindahyat/ADAGUM/blob/main/ScreenShot/1.png
-<img src="ScreenShot/1.png" alt="توضیح تصویر" width="700"/>
-https://github.com/amindahyat/ADAGUM/blob/main/ScreenShot/2.png
+<p align="center">
+  <img src="ScreenShot/1.png" alt="توضیح تصویر" width="700"/>
+  <img src="ScreenShot/2.png" alt="توضیح تصویر" width="700"/>
+  <img src="ScreenShot/3.png" alt="توضیح تصویر" width="700"/>
+</p>
 
-https://github.com/amindahyat/ADAGUM/blob/main/ScreenShot/3.png
 
 ## ✨ این نرم‌افزار چه کاری برای شما انجام می‌دهد؟
 
@@ -95,7 +96,9 @@ https://github.com/amindahyat/ADAGUM/blob/main/ScreenShot/3.png
 | **عدم قطعیت نسبی (درصد)** | درصد عدم قطعیت نسبت به میانگین | برای مقایسه‌ی دقت در سطوح مختلف اندازه‌گیری مفید است |
 
 ---
-
+## مثال خروجی
+https://github.com/amindahyat/ADAGUM/blob/main/Sample_Report.html
+---
 ## 🖥️ نیازمندی‌های سیستم برای اجرا
 
 برای اجرای این نرم‌افزار، نیاز به سخت‌افزار خاصی ندارید. کافی است:
